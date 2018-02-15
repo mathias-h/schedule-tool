@@ -1,0 +1,12 @@
+#!/usr/local/bin/node
+
+const [_1,_2,url] = process.argv
+const http = require("https")
+
+http.get(url, (res) => {
+    let data = "";
+
+    res.on("data", b => data += b)
+        .on("end", () => console.log(data.toString()))
+        .on("error", e => console.error(e))
+})
