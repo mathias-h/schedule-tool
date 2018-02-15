@@ -65,8 +65,6 @@ module Main where
     getSchedule lessons =
         map selectLesson $ zip3 (lessons !! 0) (lessons !! 1) (lessons !! 2 )
 
-    
-    padString :: String -> Int -> String
     padString s l = padding ++ s ++ padding ++ (take (mod (length s-l) 2) (repeat ' '))
         where padding = (take (quot (l - length s) 2 + 2) (repeat ' '))
     padStrings (a,b) = 
@@ -82,6 +80,7 @@ module Main where
             displayStrings $ map fst weekdayCoursePairs
             displayStrings $ map snd weekdayCoursePairs
             return ()
+            
     -- TODO check for late classes
     -- TODO select weeks
 
